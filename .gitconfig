@@ -1,0 +1,54 @@
+[credential]
+  helper = !~/AppData/Roaming/GitCredStore/git-credential-winstore
+[merge]
+  tool = diffmerge
+[mergetool "diffmerge"]
+  cmd = sgdm --merge --result= \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+  trustExitCode = true
+[mergetool]
+  keepBackup = false
+[diff]
+  tool = diffmerge
+[difftool "diffmerge"]
+  cmd = sgdm \"$LOCAL\" \"$REMOTE\"
+[user]
+  name = Jesse Brown
+  email = jabrown85@gmail.com
+[push]
+  default = upstream
+[core]
+  editor = ~user/Documents/WindowsPowerShell/sublime.bat
+[color "log"]
+  decorate = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "branch"]    
+  local = yellow
+  remote = green
+[color "status"]
+  header = normal
+  added = green
+  updated = red
+  changed = green
+  untracked = red
+  nobranch = red
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  dc = diff --cached
+  lg = log -p
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+
+  # Show files ignored by git:
+  ign = ls-files -o -i --exclude-standard
