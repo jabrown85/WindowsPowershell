@@ -14,6 +14,7 @@ function Write-ScmStatus {
 }
 
 Add-CallToPrompt { Write-ScmStatus }
+Add-CallToPrompt { Update-HostTitle }
 
 function Get-AliasShortcut([string]$commandName) {
 	ls Alias: | ?{ $_.Definition -match $commandName }

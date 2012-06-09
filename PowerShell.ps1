@@ -19,7 +19,7 @@ function prompt {
 
 	write-host ([Environment]::MachineName) -n -f $chost
 	write-host ' {' -n -f $cdelim
-	write-host (shorten-path (pwd).Path) -n -f $cloc
+	write-host ($pwd) -n -f $cloc
 	write-host '} ' -n -f $cdelim
 
     $promptCalls | foreach { $_.Invoke() }
@@ -28,15 +28,6 @@ function prompt {
 	' '
 
     $host.UI.RawUI.ForegroundColor = [ConsoleColor]::White
-} 
-
-function shorten-path([string] $path = $pwd) {
-   $loc = $path.Replace($HOME, '~')
-   # remove prefix for UNC paths
-   $loc = $loc -replace '^[^:]+::', ''
-   # make path shorter like tabs in Vim,
-   # handle paths starting with \\ and . correctly
-   return $path
 } 
 
 function Add-CallToPrompt([scriptblock] $call) {

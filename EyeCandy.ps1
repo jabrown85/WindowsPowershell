@@ -12,7 +12,7 @@ $hostTitle = {
 	
 	'PowerShell'
 	'{'
-	(Shorten-Path)
+	($pwd)
 	'}'
 }
 
