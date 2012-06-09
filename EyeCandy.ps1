@@ -7,13 +7,9 @@
 	$backColor = 'Black'
 # }
 
-$hostTitle = {
-	if ($IsAdmin) { '(Admin)' }
-	
-	'PowerShell'
-	'{'
-	($pwd)
-	'}'
+$hostTitle = {		
+	if (-not $IsAdmin) { 'WARNING: (Not Admin)' }	
+	($pwd)	
 }
 
 $banner = {
