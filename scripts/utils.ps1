@@ -1,16 +1,8 @@
 function Write-ScmStatus {
     if ((Get-Location | Select -expand Provider | Select -expand Name) -eq 'FileSystem') {
-        if (has-anyofparentpath @('.svn', '.git')) {
-            if (((Get-Command python) -ne $null) -and ((Get-Command vcprompt.py) -ne $null)) {
-                $vc = python "$((Get-Command vcprompt.py).Definition)"
-                write-host $vc -f Gray
-            }
-            else {
-                write-host ''
-            }
-        }
-        elseif (has-parentpath '.hg') {
-            write-host "[hg:$(cat $(join-path (get-parentpath '.hg') 'branch'))]" -f 'Gray'
+        if (has-anyofparentpath @('.svn', '.git', '.hg')) {
+            $vc = python "$((Get-Command vcprompt.py).Definition)" --format-hg '[%s:%b (%r:%h)]'  --format-git '[%s:%b (%r)]'                        
+            write-host $vc -f Gray
         }
         else {
             write-host ' '

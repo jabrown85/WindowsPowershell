@@ -1,10 +1,10 @@
-Add-ToPath "$profileDir/scripts"
+Add-ToPath "$profileDir\scripts"
 
 function Check-SueStatus() {
     (Get-Service SUE | Select -ExpandProperty Status) -eq 'Running'
 }
 
-Add-CallToPrompt { if (-not (Check-SueStatus)) { write-host '!SUE NOT RUNNING! ' -n -f 'Red' }}
+#Add-CallToPrompt { if (-not (Check-SueStatus)) { write-host '!SUE NOT RUNNING! ' -n -f 'Red' }}
 #Add-CallToPrompt { write-host "[$(get-weather 38018 | select temp, condition | %{ $_.temp + ' ' + $_.condition })] " -n -f 'Green' }
 
 function comp($left, $right) {

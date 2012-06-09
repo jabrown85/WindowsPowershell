@@ -8,4 +8,4 @@ Set-Alias grep Select-String
 Set-Alias sudo Elevate-Process
 Set-Alias color Out-ColorMatchInfo
 Set-Alias tgit tgit-wrapper
-Set-Alias sublime "C:\Program Files\Sublime Text 2\sublime_text.exe"
+Set-Alias sub "C:\Program Files\Sublime Text 2\sublime_text.exe"
