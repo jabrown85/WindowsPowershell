@@ -159,7 +159,10 @@ def vcprompt(options):
                 break
             count += 1
 
-        options.path = options.path.rsplit('/', 1)[0]
+        new_path = options.path.rsplit('/', 1)[0]
+        if options.path == new_path:
+            new_path = options.path.rsplit('\\', 1)[0]
+        options.path = new_path
     return ''
 
 
