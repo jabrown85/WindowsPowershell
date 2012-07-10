@@ -557,7 +557,7 @@ def hg(options):
 
     # branch
     if '%b' in options.format:
-        file = os.path.join(options.file, 'undo.branch')
+        file = os.path.join(options.file, 'branch')
         try:
             fh = open(file, 'r')
             line = fh.readline()
