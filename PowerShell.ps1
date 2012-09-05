@@ -46,7 +46,6 @@ function Start-IisExpressHere {
 }
 Import-Module find-string
 Import-Module Pscx -DisableNameChecking
-$Pscx:Preferences['TextEditor'] = "gvim.exe"
 $Pscx:Preferences['FileSizeInUnits'] = $true
 
 $vcargs = ?: {$Pscx:Is64BitProcess} {'amd64'} {''}

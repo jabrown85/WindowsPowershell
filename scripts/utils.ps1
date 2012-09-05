@@ -1,7 +1,7 @@
 function Write-ScmStatus {
     if ((Get-Location | Select -expand Provider | Select -expand Name) -eq 'FileSystem') {
         if (has-anyofparentpath @('.svn', '.git', '.hg')) {
-            $vc = python "$((Get-Command vcprompt.py).Definition)" --format-hg '[%s:%b (%r:%h)]'  --format-git '[%s:%b (%r)]'                        
+            $vc = & vcprompt.bat
             write-host $vc -f Gray
         }
         else {
