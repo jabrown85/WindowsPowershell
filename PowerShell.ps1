@@ -52,6 +52,8 @@ $vcargs = ?: {$Pscx:Is64BitProcess} {'amd64'} {''}
 $VS100VCVarsBatchFile = "${env:VS100COMNTOOLS}..\..\VC\vcvarsall.bat"
 Invoke-BatchFile $VS100VCVarsBatchFile $vcargs
 
+Set-Alias subl 'C:\Program Files\Sublime Text 2\sublime_text.exe'
+
 # override the PSCX cmdlets with the default cmdlet
 Set-Alias Select-Xml Microsoft.PowerShell.Utility\Select-Xml
 

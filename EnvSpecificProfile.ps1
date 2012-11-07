@@ -10,5 +10,5 @@ function Check-SueStatus() {
 function comp($left, $right) {
     $left = Resolve-Path $left
     $right = Resolve-Path $right
-    & 'C:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe' $left, $right
+    & "C:\Program Files (x86)\Beyond Compare 3\BCompare.exe" $left, $right
 }
