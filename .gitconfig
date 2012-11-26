@@ -1,54 +1,80 @@
 [credential]
-  helper = !~/AppData/Roaming/GitCredStore/git-credential-winstore
 [merge]
-  tool = diffmerge
+  tool = bc3
 [mergetool "diffmerge"]
   cmd = sgdm --merge --result= \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
   trustExitCode = true
 [mergetool]
   keepBackup = false
 [diff]
-  tool = diffmerge
+  tool = bc33
 [difftool "diffmerge"]
   cmd = sgdm \"$LOCAL\" \"$REMOTE\"
+[difftool]
+  prompt = false
+[difftool "bc33"]
+  #use cygpath to transform cygwin path $LOCAL (something like /tmp/U5VvP1_abc) to windows path, because bc3 is a windows software
+  cmd = \"c:/program files (x86)/beyond compare 3/bcomp.exe\" "$LOCAL" "$REMOTE"
+[mergetool]
+  prompt = false
+[mergetool "bc33"]
+  #trustExitCode = true
+  cmd = \"c:/program files (x86)/beyond compare 3/bcomp.exe\" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 [user]
   name = Jesse Brown
   email = jabrown85@gmail.com
 [push]
   default = upstream
 [core]
-  editor = ~user/Documents/WindowsPowerShell/sublime.bat
-[color "log"]
-  decorate = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-[color "branch"]    
-  local = yellow
-  remote = green
-[color "status"]
-  header = normal
-  added = green
-  updated = red
-  changed = green
-  untracked = red
-  nobranch = red
+  editor = C:/Users/jesse.NETRIFY/Documents/WindowsPowerShell/sublime.bat
+#[color "log"]
+#  decorate = yellow bold
+#  frag = magenta bold
+#  old = red bold
+#  new = green bold
+#[color "diff"]
+#  meta = yellow bold
+#  frag = magenta bold
+#  old = red bold
+#  new = green bold
+#[color "branch"]    
+#  local = yellow
+#  remote = green
+#[color "status"]
+#  header = normal
+#  added = green
+#  updated = red
+#  changed = green
+#  untracked = red
+#  nobranch = red
 [alias]
   st = status
   ci = commit
   br = branch
   co = checkout
-  df = diff
-  dc = diff --cached
-  lg = log -p
-  lol = log --graph --decorate --pretty=oneline --abbrev-commit
-  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  ls = ls-files
+  df = diff --word-diff
+  dc = diff --cached    
+  r = reset
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  rh2 = reset HEAD^^ --hard
+  sl = stash list
+  sa = stash apply
+  ss = stash save
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
+
+  # Pretty logs
+  ls = log --pretty=format:\"%C(green)%h %ad %C(yellow)%d %C(reset)%s%C(cyan) [%cn]\" --decorate --date=relative  
+  ld = log --pretty=format:\"%C(green)%h %ad %C(yellow)%d %C(reset)%s%C(cyan) [%cn]\" --decorate --date=short
+  ll = log --pretty=format:\"%C(green)%h %ad %C(yellow)%d %Creset%s%C(cyan) [%cn]\" --decorate --numstat
+  fl = log -u
+
+  # Diff a rev
+  diffr  = "!f() { git diff "$1"^.."$1"; }; f"
+
+  # List aliases
+  la = "!git config -l | grep alias | cut -c 7-"
