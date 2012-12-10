@@ -27,6 +27,7 @@
   default = upstream
 [core]
   editor = C:/Users/jesse.NETRIFY/Documents/WindowsPowerShell/sublime.bat
+  pager = less -r
 #[color "log"]
 #  decorate = yellow bold
 #  frag = magenta bold
@@ -71,10 +72,12 @@
   ls = log --pretty=format:\"%C(green)%h %ad %C(yellow)%d %C(reset)%s%C(cyan) [%cn]\" --decorate --date=relative  
   ld = log --pretty=format:\"%C(green)%h %ad %C(yellow)%d %C(reset)%s%C(cyan) [%cn]\" --decorate --date=short
   ll = log --pretty=format:\"%C(green)%h %ad %C(yellow)%d %Creset%s%C(cyan) [%cn]\" --decorate --numstat
-  fl = log --word-diff -u #pass a file name here
+  fl = log --pretty=format:\"%C(green)%h %ad %C(yellow)%d %C(reset)%s%C(cyan) [%cn]\" --decorate --date=relative #pass a file name here
+  fld = log --word-diff -u #pass a file name here
 
   # Diff a rev
   diffr  = "!f() { git diff "$1"^.."$1" --word-diff; }; f"
+  diffrt  = "!f() { git difftool "$1"^.."$1" --word-diff; }; f"
 
   # List aliases
   la = "!git config -l | grep alias | cut -c 7-"
