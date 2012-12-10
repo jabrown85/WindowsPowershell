@@ -1,6 +1,6 @@
 [credential]
 [merge]
-  tool = bc3
+  tool = bc33
 [mergetool "diffmerge"]
   cmd = sgdm --merge --result= \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
   trustExitCode = true
