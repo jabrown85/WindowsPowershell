@@ -1,6 +1,6 @@
 [credential]
 [merge]
-  tool = bc33
+	tool = bc33
 [mergetool "diffmerge"]
   cmd = sgdm --merge --result= \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
   trustExitCode = true
@@ -14,12 +14,12 @@
   prompt = false
 [difftool "bc33"]
   #use cygpath to transform cygwin path $LOCAL (something like /tmp/U5VvP1_abc) to windows path, because bc3 is a windows software
-  cmd = \"c:/program files (x86)/beyond compare 3/bcomp.exe\" "$LOCAL" "$REMOTE"
+  cmd = \"c:/program files (x86)/beyond compare 3/bcompare.exe\" \"$LOCAL\" \"$REMOTE\"
 [mergetool]
   prompt = false
 [mergetool "bc33"]
   #trustExitCode = true
-  cmd = \"c:/program files (x86)/beyond compare 3/bcomp.exe\" "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
+  cmd = \"c:/program files (x86)/beyond compare 3/bcompare.exe\" \"$LOCAL\" \"$REMOTE\" \"$BASE\" \"$MERGED\"
 [user]
   name = Jesse Brown
   email = jabrown85@gmail.com
