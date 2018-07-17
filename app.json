@@ -1,0 +1,15 @@
+{
+  "name": "WindowsPowershell",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
