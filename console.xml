@@ -2,7 +2,7 @@
 <settings>
 	<console change_refresh="10" refresh="100" rows="37" columns="109" buffer_rows="3000" buffer_columns="0" shell="" init_dir="" start_hidden="0" save_size="1">
 		<colors>
-			<color id="0" r="52" g="52" b="52"/>
+			<color id="0" r="52" g="52" b="52fffff"/>
 			<color id="1" r="0" g="0" b="128"/>
 			<color id="2" r="0" g="150" b="0"/>
 			<color id="3" r="0" g="150" b="150"/>
